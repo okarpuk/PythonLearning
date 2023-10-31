@@ -48,3 +48,13 @@ print(tom.company)
 
 
 # Обращение к атрибутам объекта через Self
+class Person:
+    def __init__(self, name):
+        self.name = name
+        self.age = 33
+
+    def display_info(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+tom = Person("Thomas")
+tom.display_info()
