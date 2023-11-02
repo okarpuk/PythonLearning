@@ -14,6 +14,8 @@ password.send_keys("secret_sauce")
 time.sleep(3)
 
 driver.find_element(By.XPATH, "//input[@id='login-button']").click()
+# driver.find_element(By.XPATH, "//*[@id='login-button']").click()
+
 time.sleep(3)
 
 driver.close()
