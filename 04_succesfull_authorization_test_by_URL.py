@@ -19,8 +19,9 @@ time.sleep(3)
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
 
+url_inventory_page = "https://www.saucedemo.com/inventory.html"
 get_url = driver.current_url
-assert get_url == "https://www.saucedemo.com/inventory.html"
+assert get_url == url_inventory_page
 
 print("Test passed")
 
