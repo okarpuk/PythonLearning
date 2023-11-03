@@ -26,8 +26,6 @@ print(value_text_products)
 
 assert value_text_products == "Products"
 
-
-
-
+print("Test passed")
 
 driver.close()
