@@ -18,14 +18,14 @@ time.sleep(3)
 
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
-time.sleep(3)
 
-products_page_locator = driver.find_element(By.XPATH, "//span[@class='title']")
-value_text_products = products_page_locator.text
-print(value_text_products)
-
-assert value_text_products == "Products"
+url_inventory_page = "https://www.saucedemo.com/inventory.html"
+get_url = driver.current_url
+assert get_url == url_inventory_page
 
 print("Test passed")
 
+time.sleep(3)
 driver.close()
+
+
