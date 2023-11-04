@@ -11,13 +11,22 @@ login_standard_user = "standard_user"
 user_name = driver.find_element(By.XPATH, "//input[@id='user-name']")
 user_name.send_keys(login_standard_user)
 
-password_standard_user = "secret_sauce"
+password_standard_user = "secret_sauce1"
 password = driver.find_element(By.XPATH, "//input[@id='password']")
 password.send_keys(password_standard_user)
 time.sleep(3)
 
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
+
+invalid_login_error = driver.find_element(By.XPATH, "//h3[@data-test='error']")
+invalid_login_error_message = invalid_login_error.text
+
+assert invalid_login_error_message == "Epic sadface: Username and password do not match any user in this service"
+print("Test passed")
+time.sleep(3)
+
+driver.refresh() # refresh page
 time.sleep(3)
 
 driver.close()
