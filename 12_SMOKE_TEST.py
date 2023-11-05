@@ -95,13 +95,16 @@ price_checkout = driver.find_element(By.XPATH, "//div[@class='inventory_item_pri
 price_checkout_text = price_checkout.text
 print("Checkout page price - " + price_checkout_text)
 
+price_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']")
+price_total_text = price_total.text
+print("Total item price - " + price_total_text)
+
 # ASSERTS ITEM TEXT & ITEM PRICE
 assert item_products_text == item_checkout_text
 print("ITEM TEXT CORRECT")
 assert price_products_text == price_checkout_text
 print("ITEM PRICE CORRECT")
-
-
-
+assert ("Item total: " + price_products_text) == price_total_text
+print("TOTAL PRICE CORRECT")
 
 driver.close()
