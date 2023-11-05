@@ -15,11 +15,11 @@ user_name.send_keys(login_standard_user)
 password_standard_user = "secret_sauce"
 password = driver.find_element(By.XPATH, "//input[@id='password']")
 password.send_keys(password_standard_user)
-time.sleep(5)
+time.sleep(3)
 
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
-time.sleep(5)
+time.sleep(3)
 
 # PRODUCT INFO - PRODUCTS PAGE
 item_products = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
@@ -34,13 +34,13 @@ print("Products page price - " + price_products_text)
 add_to_cart_button = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
 add_to_cart_button.click()
 print("Product added to cart")
-time.sleep(5)
+time.sleep(3)
 
 # CART OPENED
 cart_button = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']")
 cart_button.click()
 print("Cart opened")
-time.sleep(5)
+time.sleep(3)
 
 # PRODUCT INFO - CART PAGE
 item_cart = driver.find_element(By.XPATH, "//div[@class='inventory_item_name']")
@@ -61,9 +61,9 @@ print("PRICE CORRECT")
 checkout_button = driver.find_element(By.XPATH, "//button[@id='checkout']")
 checkout_button.click()
 print("Checkout button clicked")
-time.sleep(5)
+time.sleep(3)
 
-# PERSONAL DATA ENTRY ON CHECKOUT PAGE
+# USER INFO ENTRY ON CHECKOUT PAGE
 first_name = "Jack"
 first_name_field = driver.find_element(By.XPATH, "//input[@id='first-name']")
 first_name_field.send_keys(first_name)
@@ -78,8 +78,28 @@ zip_code = "12345"
 zip_code_field = driver.find_element(By.XPATH, "//input[@id='postal-code']")
 zip_code_field.send_keys(zip_code)
 print("Zip code entered")
-time.sleep(5)
+time.sleep(3)
 
+# CONTINUE BUTTON
+continue_button = driver.find_element(By.XPATH, "//input[@id='continue']")
+continue_button.click()
+print("Continue button clicked")
+time.sleep(3)
+
+# PRODUCT INFO - CHECKOUT PAGE
+item_checkout = driver.find_element(By.XPATH, "//div[@class='inventory_item_name']")
+item_checkout_text = (item_checkout.text)
+print("Checkout page item - " + item_checkout_text)
+
+price_checkout = driver.find_element(By.XPATH, "//div[@class='inventory_item_price']")
+price_checkout_text = price_checkout.text
+print("Checkout page price - " + price_checkout_text)
+
+# ASSERTS ITEM TEXT & ITEM PRICE
+assert item_products_text == item_checkout_text
+print("ITEM TEXT CORRECT")
+assert price_products_text == price_checkout_text
+print("ITEM PRICE CORRECT")
 
 
 
