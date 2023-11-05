@@ -53,9 +53,32 @@ print("Cart page price - " + price_cart_text)
 # ASSERTS ITEM TEXT & ITEM PRICE
 assert item_products_text == item_cart_text
 print("ITEM TEXT CORRECT")
-
 assert price_products_text == price_cart_text
 print("PRICE CORRECT")
+
+# CHECKOUT BUTTON
+checkout_button = driver.find_element(By.XPATH, "//button[@id='checkout']")
+checkout_button.click()
+print("Checkout button clicked")
+time.sleep(5)
+
+# PERSONAL DATA ENTRY ON CHECKOUT PAGE
+first_name = "Jack"
+first_name_field = driver.find_element(By.XPATH, "//input[@id='first-name']")
+first_name_field.send_keys(first_name)
+print("First name entered")
+
+last_name = "Daniels"
+last_name_field = driver.find_element(By.XPATH, "//input[@id='last-name']")
+last_name_field.send_keys(last_name)
+print("Last name entered")
+
+zip_code = "12345"
+zip_code_field = driver.find_element(By.XPATH, "//input[@id='last-name']")
+zip_code_field.send_keys(zip_code)
+print("Zip code entered")
+
+
 
 
 
