@@ -1,7 +1,6 @@
 import datetime
 import time
 from selenium import webdriver
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
@@ -19,14 +18,14 @@ password.send_keys(password_standard_user)
 
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
-time.sleep(2)
 
-action = ActionChains(driver)
-baby_cloth = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-onesie']")
-action.move_to_element(baby_cloth).perform()    # НАВЕДЕНИЕ на элемент
+menu_button = driver.find_element(By.XPATH, "//button[@id='react-burger-menu-btn']")
+menu_button.click()
 
-current_date_time = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
-screenshot_name = 'screenshot' + current_date_time + '.png'
-driver.save_screenshot('D:\PycharmProjects\AutomationLearning\Screenshots\\' + screenshot_name)
 
+
+
+
+
+time.sleep(5)
 driver.close()
