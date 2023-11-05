@@ -21,11 +21,14 @@ button_login.click()
 
 menu_button = driver.find_element(By.XPATH, "//button[@id='react-burger-menu-btn']")
 menu_button.click()
-
-
-
-
-
-
 time.sleep(5)
+
+about_menu_button = driver.find_element(By.XPATH, "//a[@id='about_sidebar_link']")
+about_menu_button.click()
+time.sleep(5)
+
+
+
+
+
 driver.close()
