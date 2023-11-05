@@ -15,6 +15,7 @@ user_name.send_keys(login_standard_user)
 password_standard_user = "secret_sauce"
 password = driver.find_element(By.XPATH, "//input[@id='password']")
 password.send_keys(password_standard_user)
+time.sleep(5)
 
 button_login = driver.find_element(By.XPATH, "//input[@id='login-button']")
 button_login.click()
@@ -74,9 +75,10 @@ last_name_field.send_keys(last_name)
 print("Last name entered")
 
 zip_code = "12345"
-zip_code_field = driver.find_element(By.XPATH, "//input[@id='last-name']")
+zip_code_field = driver.find_element(By.XPATH, "//input[@id='postal-code']")
 zip_code_field.send_keys(zip_code)
 print("Zip code entered")
+time.sleep(5)
 
 
 
