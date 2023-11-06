@@ -152,14 +152,17 @@ assert onesie_price_products_text == onesie_price_checkout_text
 print("PRODUCT #2 - CHECKOUT PRICE CORRECT")
 
 # CHECKOUT PRICES SUM
-light_clear_price = float(light_price_checkout_text.replace(light_price_checkout_text[0], ""))
-print("Product #1 clear price " + light_clear_price)
-onesie_clear_price = float(onesie_price_checkout_text.replace(onesie_price_checkout_text[0], ""))
-print("Product #2 clear price " + onesie_clear_price)
+light_clear_price = float(light_price_checkout_text.replace("$", ""))
+print(f"Product #1 clear checkout price - {light_clear_price}")
+onesie_clear_price = float(onesie_price_checkout_text.replace("$", ""))
+print(f"Product #2 clear checkout price - {onesie_clear_price}")
 prices_sum = light_clear_price + onesie_clear_price
-print("Checkout prices sum " + prices_sum)
+print(f"Checkout prices sum - {prices_sum}")
 
-
+# CHECKOUT ITEM TOTAL
+item_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']")
+item_total_text = item_total.text
+print(item_total_text)
 
 
 
