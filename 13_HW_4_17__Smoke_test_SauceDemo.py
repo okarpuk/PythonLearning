@@ -59,7 +59,7 @@ print("Cart opened")
 time.sleep(3)
 
 # CART PAGE
-# PRODUCT 1
+# PRODUCT 1 INFO
 light_cart = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
 light_cart_text = light_cart.text
 print("Cart product #1 - " + light_cart_text)
@@ -68,7 +68,7 @@ light_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_contain
 light_price_cart_text = light_price_cart.text
 print("Cart product #1 price - " + light_price_cart_text)
 
-# PRODUCT 2
+# PRODUCT 2 INFO
 onesie_cart = driver.find_element(By.XPATH, "//a[@id='item_2_title_link']/div")
 onesie_cart_text = onesie_cart.text
 print("Cart product #2 - " + onesie_cart_text)
@@ -77,18 +77,18 @@ onesie_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_contai
 onesie_price_cart_text = onesie_price_cart.text
 print("Cart product #2 price - " + onesie_price_cart_text)
 
-# ASSERTS PRODUCTS TEXT & PRODUCTS PRICE
+# ASSERTS CART TEXT & CART PRICE
 # PRODUCT 1
 assert light_products_text == light_cart_text
-print("PRODUCT #1 TEXT CORRECT")
+print("PRODUCT #1 - CART TEXT CORRECT")
 assert light_price_products_text == light_price_cart_text
-print("PRODUCT #1 PRICE CORRECT")
+print("PRODUCT #1 - CART PRICE CORRECT")
 
 # PRODUCT 2
 assert onesie_products_text == onesie_cart_text
-print("PRODUCT #2 TEXT CORRECT")
+print("PRODUCT #2 - CART TEXT CORRECT")
 assert onesie_price_products_text == onesie_price_cart_text
-print("PRODUCT #2 PRICE CORRECT")
+print("PRODUCT #2 - CART PRICE CORRECT")
 
 # CHECKOUT BUTTON
 checkout_button = driver.find_element(By.XPATH, "//button[@id='checkout']")
@@ -96,7 +96,7 @@ checkout_button.click()
 print("Checkout button clicked")
 time.sleep(3)
 
-# USER INFO ENTRY ON CHECKOUT PAGE
+# USER INFO ENTRY
 first_name = "Jack"
 first_name_field = driver.find_element(By.XPATH, "//input[@id='first-name']")
 first_name_field.send_keys(first_name)
@@ -118,6 +118,44 @@ continue_button = driver.find_element(By.XPATH, "//input[@id='continue']")
 continue_button.click()
 print("Continue button clicked")
 time.sleep(3)
+
+# CHECKOUT PAGE
+# PRODUCT 1 INFO
+light_checkout = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
+light_checkout_text = light_checkout.text
+print("Checkout product #1 - " + light_checkout_text)
+
+light_price_checkout = driver.find_element(By.XPATH, "//*[@id='checkout_summary_container']/div/div[1]/div[3]/div[2]/div[2]/div")
+light_price_checkout_text = light_price_checkout.text
+print("Checkout product #1 price - " + light_price_checkout_text)
+
+# PRODUCT 2 INFO
+onesie_checkout = driver.find_element(By.XPATH, "//*[@id='item_2_title_link']/div")
+onesie_checkout_text = onesie_checkout.text
+print("Checkout product #2 - " + onesie_checkout_text)
+
+onesie_price_checkout = driver.find_element(By.XPATH, "//*[@id='checkout_summary_container']/div/div[1]/div[4]/div[2]/div[2]/div")
+onesie_price_checkout_text = onesie_price_checkout.text
+print("Checkout product #2 price - " + onesie_price_checkout_text)
+
+# ASSERTS CHECKOUT TEXT & CHECKOUT PRICE
+# PRODUCT 1
+assert light_products_text == light_checkout_text
+print("PRODUCT #1 - CHECKOUT TEXT CORRECT")
+assert light_price_products_text == light_price_checkout_text
+print("PRODUCT #1 - CHECKOUT PRICE CORRECT")
+
+# PRODUCT 2
+assert onesie_products_text == onesie_checkout_text
+print("PRODUCT #2 - CHECKOUT TEXT CORRECT")
+assert onesie_price_products_text == onesie_price_checkout_text
+print("PRODUCT #2 - CHECKOUT PRICE CORRECT")
+
+
+
+
+
+
 
 
 
