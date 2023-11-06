@@ -57,8 +57,24 @@ cart_button = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']")
 cart_button.click()
 print("Cart opened")
 
+# CART PAGE
+# PRODUCT 1
+light_cart = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
+light_cart_text = light_cart.text
+print("Cart product #1 - " + light_cart_text)
 
+light_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[3]/div[2]/div[2]/div")
+light_price_cart_text = light_price_cart.text
+print("Cart product #1 price - " + light_price_cart_text)
 
+# PRODUCT 2
+jacket_cart = driver.find_element(By.XPATH, "//a[@id='item_5_title_link']/div")
+jacket_cart_text = jacket_cart.text
+print("Cart product #2 - " + jacket_cart_text)
+
+jacket_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[4]/div[2]/div[2]/div")
+jacket_price_cart_text = jacket_price_cart.text
+print("Cart product #2 price - " + jacket_price_cart_text)
 
 
 
