@@ -40,6 +40,27 @@ jacket_price_products = driver.find_element(By.XPATH, "//*[@id='inventory_contai
 jacket_price_products_text = jacket_price_products.text
 print("Product #2 price - " + jacket_price_products_text)
 
+# ADD PRODUCTS TO CART
+# PRODUCT 1
+add_light_to_cart_button = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-bike-light']")
+add_light_to_cart_button.click()
+print("Product #1 added to cart")
+
+# PRODUCT 2
+add_jacket_to_cart_button = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-fleece-jacket']")
+add_jacket_to_cart_button.click()
+print("Product #2 added to cart")
+time.sleep(3)
+
+# CART OPENED
+cart_button = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']")
+cart_button.click()
+print("Cart opened")
+
+
+
+
+
 
 
 
