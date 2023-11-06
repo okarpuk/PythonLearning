@@ -164,7 +164,7 @@ item_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label
 item_total_clear = float(item_total.text.replace("Item total: $", ""))
 print(f"Item total clear - {item_total_clear}")
 
-# ASSERTS CHECKOUT PRICES SUM & CHECKOUT ITEM TOTAL
+# ASSERT CHECKOUT PRICES SUM & ITEM TOTAL
 assert prices_sum == item_total_clear
 print("ITEM TOTAL CORRECT")
 
