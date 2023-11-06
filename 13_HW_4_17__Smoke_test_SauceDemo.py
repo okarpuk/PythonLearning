@@ -159,7 +159,7 @@ print(f"Product #2 clear checkout price - {onesie_clear_price}")
 prices_sum = light_clear_price + onesie_clear_price
 print(f"Checkout prices sum - {prices_sum}")
 
-# CHECKOUT ITEM TOTAL
+# ITEM TOTAL
 item_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']")
 item_total_clear = float(item_total.text.replace("Item total: $", ""))
 print(f"Item total clear - {item_total_clear}")
@@ -168,8 +168,9 @@ print(f"Item total clear - {item_total_clear}")
 assert prices_sum == item_total_clear
 print("ITEM TOTAL CORRECT")
 
-
-
-
+#FINISH
+button_finish = driver.find_element(By.XPATH, "//button[@id='finish']")
+button_finish.click()
 time.sleep(3)
+
 driver.close()
