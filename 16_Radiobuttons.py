@@ -7,7 +7,6 @@ base_url = 'https://demoqa.com/'
 driver.get(base_url)
 driver.maximize_window()
 
-login_standard_user = "standard_user"
 elements_button = driver.find_element(By.XPATH, "//*[@id='app']/div/div/div[2]/div/div[1]")
 elements_button.click()
 time.sleep(2)
