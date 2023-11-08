@@ -16,20 +16,17 @@ checkbox_button = driver.find_element(By.XPATH, "//li[@id='item-1']")
 checkbox_button.click()
 time.sleep(2)
 
+#  Click on checkbox tree
 checkbox_tree = driver.find_element(By.XPATH, "//button[@class='rct-collapse rct-collapse-btn']")
 checkbox_tree.click()
 
+#  Click on checkbox
 checkbox = driver.find_element(By.XPATH, "//*[@id='tree-node']/ol/li/span/label/span[1]")
 checkbox.click()
 time.sleep(2)
 
 # Assertion is checkbox marked
 is_checked = checkbox.is_selected()
-
-if is_checked:
-    print("Checkbox marked")
-else:
-    print("Checkbox does not marked")
 
 time.sleep(2)
 driver.close()
