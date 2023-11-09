@@ -18,9 +18,9 @@ for i in range(len(date_field.get_attribute(name="value"))):
 # Automatic date generation
 test_day = int(datetime.datetime.utcnow().strftime("%d")) + 10
 print(f"Test day - {test_day}")
-test_month = datetime.datetime.utcnow().strftime("%m")
+test_month = int(datetime.datetime.utcnow().strftime("%m"))
 print(f"Test month - {test_month}")
-test_year = datetime.datetime.utcnow().strftime("%Y")
+test_year = int(datetime.datetime.utcnow().strftime("%Y"))
 print(f"Test year - {test_year}")
 
 # Send generated date into field
