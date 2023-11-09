@@ -1,6 +1,5 @@
 import time
 import datetime
-
 from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
@@ -11,10 +10,10 @@ driver.get(base_url)
 driver.maximize_window()
 
 date_field = driver.find_element(By.XPATH, "//input[@id='datePickerMonthYearInput']")
-#date_field.clear() # Оптимально использовать этот  метод. Но если он не работает, используем костыли
+# date_field.clear() # Оптимально использовать этот  метод. Но если он не работает, используем костыли
 # КОСТЫЛЬ 1
-for i in range(len(date_field.get_attribute(name="value"))): # с помощью цилка получаем длину текста в поле
-    date_field.send_keys(Keys.BACKSPACE)                     # и вводим BACKSPACE по количеству символов
+for i in range(len(date_field.get_attribute(name="value"))):  # с помощью цилка получаем длину текста в поле
+    date_field.send_keys(Keys.BACKSPACE)                      # и вводим BACKSPACE по количеству символов
 
 # КОСТЫЛЬ 2
 # date_field.send_keys(Keys.BACKSPACE * 10) # либо просто вводим BACKSPACE по количеству символов
@@ -27,7 +26,7 @@ time.sleep(2)
 
 # Автоматическая генерация даты
 date_field.click()
-date_field.send_keys(Keys.BACKSPACE * 10) # КОСТЫЛЬ!!!!!!!!!
+date_field.send_keys(Keys.BACKSPACE * 10)  # КОСТЫЛЬ!!!!!!!!!
 todays_day = datetime.datetime.utcnow().strftime("%d")
 todays_month = datetime.datetime.utcnow().strftime("%m")
 todays_year = datetime.datetime.utcnow().strftime("%Y")
