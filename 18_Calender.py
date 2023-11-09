@@ -40,22 +40,26 @@ date_field.send_keys(f"{test_month}/{test_day}/{test_year}")
 date_field.send_keys(Keys.RETURN)
 time.sleep(2)
 
-
 # Ввод даты через пикер
+driver.refresh()
 date_field.click()
 new_date_field = driver.find_element(By.XPATH, "//div[@aria-label='Choose Tuesday, October 31st, 2023']")
 new_date_field.click()
 time.sleep(2)
+
+# Ввод даты через пикер + автогенерация даты
+driver.refresh()
+date_field.click()
+new_date_field = driver.find_element(By.XPATH, f"//div[contains(@aria-label, ' October {test_day}st, {test_year}']")
+new_date_field.click()
+time.sleep(2)
+
 
 # Ввод даты через функционал XPATH Contains
 date_field.click()
 today_date_field = driver.find_element(By.XPATH, "//div[contains(@class, 'react-datepicker__day--today')]")
 today_date_field.click()
 time.sleep(2)
-
-
-
-
 
 time.sleep(2)
 driver.close()
