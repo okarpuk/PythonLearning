@@ -16,7 +16,6 @@ for i in range(len(date_field.get_attribute(name="value"))):
     date_field.send_keys(Keys.BACKSPACE)
 
 # Automatic date generation
-date_field.click()
 test_day = int(datetime.datetime.utcnow().strftime("%d")) + 10
 print(f"Test day - {test_day}")
 test_month = datetime.datetime.utcnow().strftime("%m")
@@ -29,3 +28,4 @@ date_field.send_keys(f"{test_month}/{test_day}/{test_year}")
 date_field.send_keys(Keys.RETURN)
 time.sleep(2)
 
+driver.close()
