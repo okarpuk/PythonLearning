@@ -13,6 +13,7 @@ try:
     visible_after.click()
 except NoSuchElementException as exception:
     time.sleep(10)
+    visible_after = driver.find_element(By.XPATH, "//button[@id='visibleAfter']")
     visible_after.click()
     print("[Visible after] button clicked")
 
