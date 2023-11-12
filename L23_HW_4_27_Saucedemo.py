@@ -31,7 +31,6 @@ button_login.click()
 time.sleep(3)
 
 # PRODUCTS PAGE
-# PRODUCTS INFO
 # PRODUCT 1
 product_1_products = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
 product_1_price_products = driver.find_element(By.XPATH, "//*[@id='inventory_container']/div/div[1]/div[2]/div[2]/div")
@@ -77,22 +76,22 @@ product_6_price_products_text = product_6_price_products.text
 # ADD PRODUCT TO CART
 if entered_number == 1:
     product_1_add_to_cart_button.click()
-    print(f"Product: '{product_1_products_text}' added to cart")
+    print(f"Product: '{product_1_products_text}' added to cart.\nPrice - {product_1_price_products_text}")
 elif entered_number == 2:
     product_2_add_to_cart_button.click()
-    print(f"Product: '{product_2_products_text}' added to cart")
+    print(f"Product: '{product_2_products_text}' added to cart.\nPrice - {product_2_price_products_text}")
 elif entered_number == 3:
     product_3_add_to_cart_button.click()
-    print(f"Product: '{product_3_products_text}' added to cart")
+    print(f"Product: '{product_3_products_text}' added to cart.\nPrice - {product_3_price_products_text}")
 elif entered_number == 4:
     product_4_add_to_cart_button.click()
-    print(f"Product: '{product_4_products_text}' added to cart")
+    print(f"Product: '{product_4_products_text}' added to cart.\nPrice - {product_4_price_products_text}")
 elif entered_number == 5:
     product_5_add_to_cart_button.click()
-    print(f"Product: '{product_5_products_text}' added to cart")
+    print(f"Product: '{product_5_products_text}' added to cart.\nPrice - {product_5_price_products_text}")
 elif entered_number == 6:
     product_6_add_to_cart_button.click()
-    print(f"Product: '{product_6_products_text}' added to cart")
+    print(f"Product: '{product_6_products_text}' added to cart.\nPrice - {product_6_price_products_text}")
 
 # CART OPENED
 cart_button = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']")
@@ -101,26 +100,50 @@ print("Cart opened")
 time.sleep(3)
 
 
+# CART PAGE
+# PRODUCT 1
+product_1_cart = driver.find_element(By.XPATH, "//*[@id='item_4_title_link']/div")
+product_1_cart_text = product_1_cart.text
+product_1_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[3]/div[2]/div[2]/div")
+product_1_price_cart_text = product_1_price_cart.text
 
-# # CART PAGE
-# # PRODUCT 1 INFO
-# light_cart = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
-# light_cart_text = light_cart.text
-# print("Cart product #1 - " + light_cart_text)
-#
-# light_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[3]/div[2]/div[2]/div")
-# light_price_cart_text = light_price_cart.text
-# print("Cart product #1 price - " + light_price_cart_text)
-#
-# # PRODUCT 2 INFO
-# onesie_cart = driver.find_element(By.XPATH, "//a[@id='item_2_title_link']/div")
-# onesie_cart_text = onesie_cart.text
-# print("Cart product #2 - " + onesie_cart_text)
-#
-# onesie_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[4]/div[2]/div[2]/div")
-# onesie_price_cart_text = onesie_price_cart.text
-# print("Cart product #2 price - " + onesie_price_cart_text)
-#
+product_2_cart = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
+product_2_cart_text = product_2_cart.text
+product_2_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[4]/div[2]/div[2]/div")
+product_2_price_cart_text = product_2_price_cart.text
+
+product_3_cart = driver.find_element(By.XPATH, "//*[@id='item_1_title_link']/div")
+product_3_cart_text = product_3_cart.text
+product_3_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[5]/div[2]/div[2]/div")
+product_3_price_cart_text = product_3_price_cart.text
+
+product_4_cart = driver.find_element(By.XPATH, "//*[@id='item_5_title_link']/div")
+product_4_cart_text = product_4_cart.text
+product_4_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[6]/div[2]/div[2]/div")
+product_4_price_cart_text = product_4_price_cart.text
+
+product_5_cart = driver.find_element(By.XPATH, "//*[@id='item_2_title_link']/div")
+product_5_cart_text = product_5_cart.text
+product_5_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[7]/div[2]/div[2]/div")
+product_5_price_cart_text = product_5_price_cart.text
+
+product_6_cart = driver.find_element(By.XPATH, "//*[@id='item_3_title_link']/div")
+product_6_cart_text = product_6_cart.text
+product_6_price_cart = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[8]/div[2]/div[2]/div")
+product_6_price_cart_text = product_6_price_cart.text
+
+
+
+
+
+
+
+
+
+print("Cart product #1 - " + product_1_cart_text)
+print("Cart product #1 price - " + light_price_cart_text)
+
+
 # # ASSERTS CART TEXT & CART PRICE
 # # PRODUCT 1
 # assert light_products_text == light_cart_text
