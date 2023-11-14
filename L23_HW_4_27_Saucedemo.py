@@ -93,7 +93,7 @@ elif entered_number == 6:
 cart_button = driver.find_element(By.XPATH, "//a[@class='shopping_cart_link']")
 cart_button.click()
 print("Cart opened")
-time.sleep(5)
+time.sleep(3)
 
 # CART PAGE AND ASSERTS
 cart_price = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[3]/div[2]/div[2]/div")
@@ -155,6 +155,7 @@ zip_code = "12345"
 zip_code_field = driver.find_element(By.XPATH, "//input[@id='postal-code']")
 zip_code_field.send_keys(zip_code)
 print("Zip code entered")
+time.sleep(3)
 
 continue_button = driver.find_element(By.XPATH, "//input[@id='continue']")
 continue_button.click()
@@ -210,6 +211,7 @@ item_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label
 item_total_clear = item_total.text.replace("Item total: ", "")
 assert checkout_price.text == item_total_clear
 print(f"Checkout price ({checkout_price.text}) CORRECT with Item total ({item_total_clear})")
+time.sleep(3)
 
 #FINISH
 button_finish = driver.find_element(By.XPATH, "//button[@id='finish']")
