@@ -32,10 +32,13 @@ time.sleep(3)
 
 # PRODUCTS PAGE
 # DICTIONARY WITH ALL PRODUCTS AND PRICES
+product_1 = driver.find_element(By.XPATH, "//a[@id='item_4_title_link']")
+product_1_text = product_1.text
+price_1 = driver.find_element(By.XPATH, "//*[@id='inventory_container']/div/div[1]/div[2]/div[2]/div")
+price_1_text = price_1.text
+add_to_cart_button_1 = driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
+
 products_page = {
-    "product_1": driver.find_element(By.XPATH, "//a[@id='item_4_title_link']"),
-    "price_1": driver.find_element(By.XPATH, "//*[@id='inventory_container']/div/div[1]/div[2]/div[2]/div"),
-    "add_to_cart_button_1": driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']"),
     "product_2": driver.find_element(By.XPATH, "//a[@id='item_0_title_link']"),
     "price_2": driver.find_element(By.XPATH, "//*[@id='inventory_container']/div/div[2]/div[2]/div[2]/div"),
     "add_to_cart_button_2": driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-bike-light']"),
@@ -55,8 +58,14 @@ products_page = {
 
 # ADD PRODUCT TO CART
 if entered_number == 1:
-    products_page["add_to_cart_button_1"].click()
-    print(f"Product: '{products_page['product_1'].text}' added to cart.\nPrice - {products_page['price_1'].text}")
+    add_to_cart_button_1.click()
+    print(f"Product: '{product_1_text}' added to cart.\nPrice - {price_1_text}")
+
+
+
+# if entered_number == 1:
+#     products_page["add_to_cart_button_1"].click()
+#     print(f"Product: '{products_page['product_1'].text}' added to cart.\nPrice - {products_page['price_1'].text}")
 elif entered_number == 2:
     products_page["add_to_cart_button_2"].click()
     print(f"Product: '{products_page['product_2'].text}' added to cart.\nPrice - {products_page['price_2'].text}")
@@ -88,10 +97,10 @@ time.sleep(3)
 if entered_number == 1:
     cart_product_1 = driver.find_element(By.XPATH, "//*[@id='item_4_title_link']/div")
     cart_price_1 = driver.find_element(By.XPATH, "//*[@id='cart_contents_container']/div/div[1]/div[3]/div[2]/div[2]/div")
-    assert products_page['product_1'].text == cart_product_1.text
-    print(f"Product: '{products_page['product_1'].text}' cart text CORRECT")
-    assert int(products_page['price_1'].text) == int(cart_price_1.text)
-    print(f"Price: '{products_page['price_1'].text}' cart price CORRECT")
+    assert product_1_text == cart_product_1.text
+    print(f"Product: '{product_1_text}' cart text CORRECT")
+    assert price_1_text == cart_price_1.text
+    print(f"Price: '{price_1_text}' cart price CORRECT")
 
 
 elif entered_number == 2:
