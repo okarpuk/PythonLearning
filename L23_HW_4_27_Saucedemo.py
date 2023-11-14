@@ -154,44 +154,40 @@ continue_button.click()
 print("Continue button clicked")
 
 # CHECKOUT PAGE
-checkout_price = driver.find_element(By.XPATH, "//*[@id='checkout_summary_container']/div/div[1]/div[3]/div[2]/div[2]/div")
-
 if entered_number == 1:
     checkout_product_1 = driver.find_element(By.XPATH, "//*[@id='item_4_title_link']/div")
-    assert product_1_text == checkout_product_1.text
-    print(f"Product name ({product_1_text}) CORRECT with checkout name ({checkout_product_1.text})")
-    assert price_1_text == checkout_price.text
-    print(f"Product price ({price_1_text}) CORRECT with checkout price ({checkout_price.text})")
 elif entered_number == 2:
     checkout_product_2 = driver.find_element(By.XPATH, "//*[@id='item_0_title_link']/div")
-    assert product_2_text == checkout_product_2.text
-    print(f"Product name ({product_2_text}) CORRECT with checkout name ({checkout_product_2.text})")
-    assert price_2_text == checkout_price.text
-    print(f"Product price ({price_2_text}) CORRECT with checkout price ({checkout_price.text})")
 elif entered_number == 3:
     checkout_product_3 = driver.find_element(By.XPATH, "//*[@id='item_1_title_link']/div")
-    assert product_3_text == checkout_product_3.text
-    print(f"Product name ({product_3_text}) CORRECT with checkout name ({checkout_product_3.text})")
-    assert price_3_text == checkout_price.text
-    print(f"Product price ({price_3_text}) CORRECT with checkout price ({checkout_price.text})")
 elif entered_number == 4:
     checkout_product_4 = driver.find_element(By.XPATH, "//*[@id='item_5_title_link']/div")
-    assert product_4_text == checkout_product_4.text
-    print(f"Product name ({product_4_text}) CORRECT with checkout name ({checkout_product_4.text})")
-    assert price_4_text == checkout_price.text
-    print(f"Product price ({price_4_text}) CORRECT with checkout price ({checkout_price.text})")
 elif entered_number == 5:
     checkout_product_5 = driver.find_element(By.XPATH, "//*[@id='item_2_title_link']/div")
-    assert product_5_text == checkout_product_5.text
-    print(f"Product name ({product_5_text}) CORRECT with checkout name ({checkout_product_5.text})")
-    assert price_5_text == checkout_price.text
-    print(f"Product price ({price_5_text}) CORRECT with checkout price ({checkout_price.text})")
 elif entered_number == 6:
     checkout_product_6 = driver.find_element(By.XPATH, "//*[@id='item_3_title_link']/div")
-    assert product_6_text == checkout_product_6.text
-    print(f"Product name ({product_6_text}) CORRECT with checkout name ({checkout_product_6.text})")
-    assert price_6_text == checkout_price.text
-    print(f"Product price ({price_6_text}) CORRECT with checkout price ({checkout_price.text})")
+
+checkout_price = driver.find_element(By.XPATH, "//*[@id='checkout_summary_container']/div/div[1]/div[3]/div[2]/div[2]/div")
+
+def checkout_and_assert (product_number, product_checkout, price_number):
+    assert product_number == product_checkout.text
+    print(f"Product name ({product_number}) CORRECT with checkout name ({product_checkout.text})")
+    assert price_number == checkout_price.text
+    print(f"Product price ({price_number}) CORRECT with checkout price ({checkout_price.text})")
+    return
+
+if entered_number == 1:
+    checkout_and_assert(product_1_text, checkout_product_1, price_1_text)
+elif entered_number == 2:
+    checkout_and_assert(product_2_text, checkout_product_2, price_2_text)
+elif entered_number == 3:
+    checkout_and_assert(product_3_text, checkout_product_3, price_3_text)
+elif entered_number == 4:
+    checkout_and_assert(product_4_text, checkout_product_4, price_4_text)
+elif entered_number == 5:
+    checkout_and_assert(product_5_text, checkout_product_5, price_5_text)
+elif entered_number == 6:
+    checkout_and_assert(product_6_text, checkout_product_6, price_6_text)
 
 # ASSERTS ITEM TOTAL
 item_total = driver.find_element(By.XPATH, "//div[@class='summary_subtotal_label']")
