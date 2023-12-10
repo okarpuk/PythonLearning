@@ -55,16 +55,38 @@ action.click_and_hold(price_slider_2).move_by_offset(-50, 0).release().perform()
 checkbox_lg = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[3]/div[2]/div[4]/label/span[1]/span")
 checkbox_lg.click()
 
-checkbox_diagonal = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[5]/div[3]/div[6]/label/span[1]")  # замените "yourElementId" на ID вашего элемента
+checkbox_diagonal = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[5]/div[3]/div[6]/label/span[1]")
 driver.execute_script("arguments[0].click();", checkbox_diagonal)
 
+checkbox_screen_technology = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[6]/div[3]/div[2]/label/span[1]/span")
+driver.execute_script("arguments[0].click();", checkbox_screen_technology)
+
+checkbox_screen_resolution = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[7]/div[3]/div[3]/label/span[1]/span")
+driver.execute_script("arguments[0].click();", checkbox_screen_resolution)
+
+confirm_filter_button = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[33]/button[1]")
+driver.execute_script("arguments[0].click();", confirm_filter_button)
+
+# работает только так. При использовании ожиданий выдает ошибку - Stale element
+time.sleep(3)
+add_to_cart_button = driver.execute_script("return document.querySelector('.action-btn--btn-buy');")
+add_to_cart_button.click()
+
+# Создаем функцию для использования с явным ожиданием
+# def add_to_cart_button_wait(driver):
+#     return driver.execute_script("return document.querySelector('.action-btn--btn-buy');")
+#
+# Используем явное ожидание для ожидания появления элемента на странице
+# wait = WebDriverWait(driver, 10)
+# add_to_cart_button = wait.until(add_to_cart_button_wait)
 
 
 
 
 
 
-time.sleep(5)
+
+time.sleep(10)
 
 
 
