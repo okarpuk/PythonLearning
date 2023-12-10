@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome()
@@ -44,15 +46,23 @@ TV_button.click()
 ######### TV PAGE ###########
 
 action = ActionChains(driver)
-
 price_slider_1 = driver.find_element(By.XPATH, "//*[@id='filter-range-price']/span[1]")
-action.click_and_hold(price_slider_1).move_by_offset(30, 0).release().perform()
+action.click_and_hold(price_slider_1).move_by_offset(50, 0).release().perform()
 
 price_slider_2 = driver.find_element(By.XPATH, "//*[@id='filter-range-price']/span[2]")
-action.click_and_hold(price_slider_2).move_by_offset(-100, 0).release().perform()
+action.click_and_hold(price_slider_2).move_by_offset(-50, 0).release().perform()
 
 checkbox_lg = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[3]/div[2]/div[4]/label/span[1]/span")
 checkbox_lg.click()
+
+checkbox_diagonal = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[5]/div[3]/div[6]/label/span[1]")  # замените "yourElementId" на ID вашего элемента
+driver.execute_script("arguments[0].click();", checkbox_diagonal)
+
+
+
+
+
+
 
 time.sleep(5)
 
