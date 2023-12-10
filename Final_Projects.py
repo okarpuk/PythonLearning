@@ -39,8 +39,8 @@ enter_2_button = driver.find_element(By.CSS_SELECTOR,"div[class='open-logon open
 enter_2_button.click()
 time.sleep(10)
 
-TV_button = driver.find_element(By.XPATH,"//a[@class='header-categories__item'][contains(text(),'Телевизоры')]")
-TV_button.click()
+tv_button = driver.find_element(By.XPATH,"//a[@class='header-categories__item'][contains(text(),'Телевизоры')]")
+tv_button.click()
 
 
 ######### TV PAGE ###########
@@ -72,15 +72,11 @@ time.sleep(3)
 add_to_cart_button = driver.execute_script("return document.querySelector('.action-btn--btn-buy');")
 add_to_cart_button.click()
 
-# Создаем функцию для использования с явным ожиданием
-# def add_to_cart_button_wait(driver):
-#     return driver.execute_script("return document.querySelector('.action-btn--btn-buy');")
-#
-# Используем явное ожидание для ожидания появления элемента на странице
-# wait = WebDriverWait(driver, 10)
-# add_to_cart_button = wait.until(add_to_cart_button_wait)
+cart_button = driver.find_element(By.XPATH,"//a[@id='cart-link']")
+cart_button.click()
 
 
+########## CART PAGE #############
 
 
 
