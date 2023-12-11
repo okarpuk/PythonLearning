@@ -47,12 +47,15 @@ tv_button.click()
 
 action = ActionChains(driver)
 price_slider_1 = driver.find_element(By.XPATH, "//*[@id='filter-range-price']/span[1]")
-action.click_and_hold(price_slider_1).move_by_offset(50, 0).release().perform()
+action.click_and_hold(price_slider_1).move_by_offset(20, 0).release().perform()
 
 price_slider_2 = driver.find_element(By.XPATH, "//*[@id='filter-range-price']/span[2]")
 action.click_and_hold(price_slider_2).move_by_offset(-50, 0).release().perform()
 
-checkbox_lg = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[3]/div[2]/div[4]/label/span[1]/span")
+brands_dropdown = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[3]/div[2]/div[8]/label")
+brands_dropdown.click()
+
+checkbox_lg = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[3]/div[2]/div[10]/div/div/div/div[10]/label/span[1]/span")
 checkbox_lg.click()
 
 checkbox_diagonal = driver.find_element(By.XPATH, "//*[@id='catalog-filter-form']/div[5]/div[3]/div[6]/label/span[1]")
