@@ -89,14 +89,28 @@ dropdown_date.click()
 dropdown_date.send_keys(Keys.ARROW_DOWN)    # имитация нажатия СТРЕЛКИ ВНИЗ
 dropdown_date.send_keys(Keys.RETURN)
 
-time.sleep(2)
+need_call_radiobutton = driver.find_element(By.XPATH,"//*[@id='svelte-page']/div/div[1]/div[6]/div[1]/div/label[2]/span/input")
+driver.execute_script("arguments[0].click();", need_call_radiobutton)
+
+delete_button = driver.find_element(By.XPATH,"//button[@title='Удалить из заказа']")
+delete_button.click()
+
+profile_icon = driver.find_element(By.XPATH,"//div[@class='svg-icon header-icon__icon--person']")
+profile_icon.click()
+
+
+###############  PROFILE PAGE ###################
+
+profile_exit_button = driver.find_element(By.XPATH,"//a[@class='btn btn-orange btn-orange--bordered']")
+profile_exit_button.click()
+
+time.sleep(5)
 
 
 
 
 
 
-time.sleep(10)
 
 
 
@@ -108,13 +122,6 @@ time.sleep(10)
 
 
 
-
-
-
-
-
-
-driver.close()
 
 
 
