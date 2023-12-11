@@ -81,6 +81,17 @@ cart_button.click()
 
 ########## CART PAGE #############
 
+plus_one_product_button = driver.find_element(By.XPATH,"//button[normalize-space()='+']")
+plus_one_product_button.click()
+
+dropdown_date = driver.find_element(By.XPATH,"//*[@id='svelte-page']/div/div[1]/div[2]/div[5]/div/span/div/select")
+dropdown_date.click()
+dropdown_date.send_keys(Keys.ARROW_DOWN)    # имитация нажатия СТРЕЛКИ ВНИЗ
+dropdown_date.send_keys(Keys.RETURN)
+
+time.sleep(2)
+
+
 
 
 
