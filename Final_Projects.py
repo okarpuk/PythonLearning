@@ -71,7 +71,7 @@ confirm_filter_button = driver.find_element(By.XPATH, "//*[@id='catalog-filter-f
 driver.execute_script("arguments[0].click();", confirm_filter_button)
 
 # работает только так. При использовании ожиданий выдает ошибку - Stale element
-time.sleep(3)
+time.sleep(5)
 add_to_cart_button = driver.execute_script("return document.querySelector('.action-btn--btn-buy');")
 add_to_cart_button.click()
 
